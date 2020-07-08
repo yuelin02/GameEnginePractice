@@ -44,18 +44,23 @@ public class GraphAnimated : MonoBehaviour
     private void Update()
     {
         float t = Time.time;
+        GraphFunction f;
+
+        if (function == 0)
+        {
+            f = SineFunction;
+        }
+        else
+        {
+            f = MultiSineFunction;
+        }
+
         for (int i = 0; i < points.Length; i++)
         {
             Transform point = points[i];
             Vector3 position = point.localPosition;
 
-            if (function == 0)
-            {
-                position.y = SineFunction(position.x, t);
-            }
-            else {
-                position.y = MultiSineFunction(position.x, t);
-            }
+            position.y = f(position.x, t);
 
             point.localPosition = position;
         }
