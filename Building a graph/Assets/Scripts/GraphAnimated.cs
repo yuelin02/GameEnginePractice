@@ -6,6 +6,9 @@ public class GraphAnimated : MonoBehaviour
     [Range(10, 50)]
     public int resolution = 50;
 
+    [Range(0, 1)]
+    public int function;
+
     Transform[] points;
 
     private void Awake()
@@ -37,14 +40,36 @@ public class GraphAnimated : MonoBehaviour
             points[i] = point;
         }
     }
+
     private void Update()
     {
+        float t = Time.time;
         for (int i = 0; i < points.Length; i++)
         {
             Transform point = points[i];
             Vector3 position = point.localPosition;
-            position.y = Mathf.Sin(Mathf.PI * (position.x + Time.time / 2f));
+
+            if (function == 0)
+            {
+                position.y = SineFunction(position.x, t);
+            }
+            else {
+                position.y = MultiSineFunction(position.x, t);
+            }
+
             point.localPosition = position;
         }
+    }
+
+    static float SineFunction(float x, float t) {
+        return Mathf.Sin(Mathf.PI * (x + t));
+    }
+
+    static float MultiSineFunction (float x, float t)
+    {
+        float y = Mathf.Sin(Mathf.PI * (x + t));
+        y += Mathf.Sin(2f * Mathf.PI * (x + 2f * t)) / 2f;
+        y *= 2f / 3f;
+        return y;
     }
 }
