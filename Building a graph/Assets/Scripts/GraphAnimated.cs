@@ -6,8 +6,7 @@ public class GraphAnimated : MonoBehaviour
     [Range(10, 50)]
     public int resolution = 50;
 
-    [Range(0, 1)]
-    public int function;
+    public GraphFunctionName function;
 
     Transform[] points;
 
@@ -44,16 +43,7 @@ public class GraphAnimated : MonoBehaviour
     private void Update()
     {
         float t = Time.time;
-        GraphFunction f;
-
-        if (function == 0)
-        {
-            f = SineFunction;
-        }
-        else
-        {
-            f = MultiSineFunction;
-        }
+        GraphFunction f = functions[(int)function];
 
         for (int i = 0; i < points.Length; i++)
         {
@@ -77,4 +67,10 @@ public class GraphAnimated : MonoBehaviour
         y *= 2f / 3f;
         return y;
     }
+
+    static GraphFunction[] functions =
+    {
+        SineFunction, MultiSineFunction
+    };
+
 }
