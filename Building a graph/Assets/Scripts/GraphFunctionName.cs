@@ -10,5 +10,6 @@ public enum GraphFunctionName {
     Ripple,
     TwistingCylinder,
     Sphere,
-    PulsingSphere
+    PulsingSphere,
+    Torus
 }
