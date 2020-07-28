@@ -33,9 +33,23 @@ public class FPSDisplay : MonoBehaviour
 
     private void Update()
     {
-        averageFPSLabel.text = stringsFrom00To99[Mathf.Clamp(fpsCounter.AverageFPS, 0, 99)];
-        highestFPSLabel.text = stringsFrom00To99[Mathf.Clamp(fpsCounter.HighestFPS, 0, 99)];
-        lowestFPSLabel.text = stringsFrom00To99[Mathf.Clamp(fpsCounter.LowestFPS, 0, 99)];
+        Display(averageFPSLabel, fpsCounter.AverageFPS);
+        Display(highestFPSLabel, fpsCounter.HighestFPS);
+        Display(lowestFPSLabel, fpsCounter.LowestFPS);
+    }
+
+    void Display(Text label, int fps)
+    {
+        label.text = stringsFrom00To99[Mathf.Clamp(fps, 0, 99)];
+
+        for (int i = 0; i < coloring.Length; i++)
+        {
+            if (fps >= coloring[i].minimumFPS)
+            {
+                label.color = coloring[i].color;
+                break;
+            }
+        }
     }
 
     [System.Serializable]

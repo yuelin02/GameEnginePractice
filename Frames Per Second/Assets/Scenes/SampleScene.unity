@@ -637,15 +637,15 @@ MonoBehaviour:
   highestFPSLabel: {fileID: 280198167}
   lowestFPSLabel: {fileID: 870309274}
   coloring:
-  - color: {r: 0.8679245, g: 0, b: 0, a: 0}
+  - color: {r: 0.8679245, g: 0, b: 0, a: 1}
     minimumFPS: 60
-  - color: {r: 0.8867924, g: 0.24679601, b: 0.28327256, a: 0}
+  - color: {r: 0.8867924, g: 0.24679601, b: 0.28327256, a: 1}
     minimumFPS: 45
-  - color: {r: 0.9433962, g: 0.493948, b: 0.5327493, a: 0}
+  - color: {r: 0.9433962, g: 0.493948, b: 0.5327493, a: 1}
     minimumFPS: 30
-  - color: {r: 0.9811321, g: 0.6803133, b: 0.71039516, a: 0}
+  - color: {r: 0.9811321, g: 0.6803133, b: 0.71039516, a: 1}
     minimumFPS: 15
-  - color: {r: 1, g: 0.8726415, b: 0.88604766, a: 0}
+  - color: {r: 1, g: 0.8726415, b: 0.88604766, a: 1}
     minimumFPS: 0
 --- !u!1 &1395076232
 GameObject:
