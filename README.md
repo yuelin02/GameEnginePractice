@@ -1,3 +1,3 @@
-# Unity Coding Practice
+# Unity Coding
 
-This is a repository for my practice of unity c# coding
+This is a repository for unity c# coding practice
